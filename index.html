@@ -2,36 +2,70 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>🤖 Notícias do Tempo & Mercado Livre</title>
+    <title>🗞️ Hermes News – Clima & Ofertas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonte moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8619380740046956" crossorigin="anonymous"></script>
+
+    <!-- Google AdSense (substitua data‑ad‑slot pelo seu ID de bloco) -->
+    <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8619380740046956"
+            crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <header>
-        <h1>📰 Notícias Diárias</h1>
-        <p>Clima local, novidades e ofertas do Mercado Livre.</p>
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="logo">📰 Hermes News</h1>
+            <nav class="site-nav">
+                <a href="#" class="nav-item">Início</a>
+                <a href="#" class="nav-item">Sobre</a>
+                <a href="#" class="nav-item">Contato</a>
+            </nav>
+        </div>
+        <p class="tagline">Clima local, novidades e ofertas do Mercado Livre</p>
     </header>
-    <main id="posts">
-        <!-- Posts will be inserted here manually or via a static site generator -->
-        <article class="post">
-            <h2><a href="posts/2024-06-01-weather.md">Previsão do Tempo – São Paulo (01/06/2024)</a></h2>
-            <p class="meta">📅 01 de junho de 2024</p>
-            <p>Temperatura: 22 °C – céu parcialmente nublado.</p>
-            <p>Confira ofertas relacionadas ao clima <a href="https://www.mercadolivre.com.br/c/roupas/">aqui</a>.</p>
-        </article>
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="content">
+        <section class="posts-grid" id="posts">
+            <!-- Cada post é um <article class="post-card"> -->
+            {% for post in site.posts %}
+            <article class="post-card">
+                <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <p class="post-meta">📅 {{ post.date | date: "%d de %B de %Y" }}</p>
+                <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+                <p class="post-cta"><a href="{{ post.link_afiliado }}">Ofertas relacionadas ao clima →</a></p>
+            </article>
+            {% endfor %}
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Hermes News – Todos os direitos reservados.</p>
-        <!-- Placeholder para AdSense -->
-        <div class="adsense"><ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8619380740046956"
-     data-ad-slot="YOUR_AD_SLOT"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2024 Hermes News – Todos os direitos reservados.</p>
+
+            <!-- Bloco de anúncio AdSense (substitua data‑ad‑slot) -->
+            <div class="adsense">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8619380740046956"
+                     data-ad-slot="YOUR_AD_SLOT"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <div class="social-links">
+                <a href="#" aria-label="Telegram">📱</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

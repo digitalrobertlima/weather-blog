@@ -1,1 +1,24 @@
+# Arquivos de ambiente e segredos
 .env
+*.pem
+*.key
+
+# Node / npm
+node_modules/
+package-lock.json
+yarn.lock
+
+# Cache / arquivos temporários
+.cache/
+*.log
+tmp/
+*.tmp
+
+# Build output (se usar gerador estático)
+dist/_site/public/
+
+# Arquivos grandes que não devem subir ao git
+*.zip
+*.tar
+*.tgz
+*.pt
